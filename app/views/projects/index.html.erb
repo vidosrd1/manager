@@ -1,0 +1,99 @@
+<% content_for :title, "Projects" %>
+
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="text-teal-600 flex justify-between items-center">
+    <h4 class="font-bold text-3xl">Projects</h4>
+    <%= link_to "New project", new_project_path,
+    class: "rounded-md px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+  </div>
+  <br>
+  <div data-controller="dark-mode">
+    <%= image_tag("_create-a.svg",
+    data: { action: 'click->dark-mode#toggle'}) %>
+  </div>
+  <br>
+  <div style="margin-bottom:0.3em">
+    <%= form_with(url: projects_path, method: :get,
+  data: {turbo_frame: "projects",
+  turbo_action: "advance"}) do |form| %>
+    <%= form.label :search, "Search by post name:",
+      class: "block mb-2" %>
+      <div class="flex space-x-3">
+        <%= form.text_field :search, class: "py-2 px-5
+        rounded border ring-0 focus:ring-4
+        focus:ring-orange-100 focus:shadow-none
+        dark:text-slate-500 focus:border-orange-500 focus:outline-none",
+        data: {action: "input->search-form#search"} %>
+
+        <%= form.submit 'Search', class: "px-4 py-2 font-medium
+        bg-orange-400 text-neutal-900 rounded flex items-center
+        cursor-pointer hover:bg-orange-600 focus:ring-4 ring-0
+        text-gray-900 hover:text-gray-100 focus:ring-orange-100" %>
+      </div>
+    <% end %>
+  </div>
+  <div style="margin-top:0.1em" class="row mt-4 clearfix">
+  <% if @pagy.count > @pagy.limit
+  %>
+  <div class="mt-10">
+    <%== pagy_nav(@pagy) %>
+  </div>
+  <% end %>
+  </div>
+  <div id="projects" class="min-w-full divide-y divide-gray-200 space-y-5">
+    <% if @projects.any? %>
+      <% @projects.each do |project| %>
+        <div style="margin-top:1.5em"
+      class="row mt-4 clearfix
+flex flex-col sm:flex-row justify-between
+items-center pb-5 sm:pb-0">
+          <div style="margin-bottom:0.3em"
+class="row col-8 col-sm-8 col-md-9 col-lg-9">
+<h5 class="dark:text-slate-600 mt-0 mb-1">
+  <strong><a href="/projects/<%= project.id %>",
+  class="nav-link"><%= project.title %></a>
+  </strong>
+</h5>
+<h5 style="margin-bottom:1.3em; margin-top:0.5em"
+class="dark:text-slate-400 mt-0 mb-1">
+<%= truncate(strip_tags(project.body.to_s), length:300) %>
+</h5>
+<div style="margin-top:1em; margin-bottom:1em"
+class="col-4 col-sm-4 col-md-3 col-lg-3 clearfix">
+<% if project.image.attached? %>
+  <%= link_to image_tag(project.image,
+  style:"width:15em; heigh:auto"), project.image %>
+<% end %>
+</div>
+<% if user_signed_in? %>
+  <%= link_to "Edit this project",
+  edit_project_path(project),
+  class:"dark:text-slate-600" %>
+<% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="text-center my-10">No projects found.</p>
+    <% end %>
+  </div>
+
+  <div style="margin-bottom:1em"
+  class="1row mt-4 clearfix">
+  <% if @pagy.count > @pagy.limit
+  %>
+  <div class="mt-10">
+    <%== pagy_nav(@pagy) %>
+  </div>
+  <% end %>
+  </div>
+  <div style="margin-bottom:1.5em"
+  class="flex justify-between items-center">
+    <%= link_to "New project", new_project_path,
+    class: "rounded-md px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+  </div>
+</div>

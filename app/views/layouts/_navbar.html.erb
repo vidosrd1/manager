@@ -1,0 +1,12 @@
+<nav style="margin-left:15px; margin-right:5x;" class="space-x-1">
+  <a class="text-orange-500 1nav-link active"
+  aria-current="page" href="/pages/home">Home</a>
+  <a class="text-orange-500 1nav-link active"
+  aria-current="page" href="/pages/pricing">Pricing</a>
+  <a class="text-orange-500 1nav-link active"
+  aria-current="page" href="/pages/privacy">Privacy</a>
+  <%= link_to 'Posts', posts_path,
+  class: "text-orange-500 1nav-link" %>
+  <% if user_signed_in? %>
+  <% end %>
+</nav>
