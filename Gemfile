@@ -1,5 +1,8 @@
 source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+#gemspec
 
+gem "debug", ">= 1.0.0"
 gem "rails", "~> 8.1.1"
 gem "propshaft"
 gem "pg", "~> 1.1"
@@ -53,7 +56,7 @@ gem 'ansi'
 gem 'cane'
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  #gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "bundler-audit", require: false
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
@@ -64,6 +67,7 @@ group :development do
   gem 'solargraph'#, '~> 0.50.0'
 end
 group :test do
+  gem "actionmailer", ">= 7.0.0"
   gem 'activesupport'
   gem 'codecov', require: false
   gem 'i18n'
