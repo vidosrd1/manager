@@ -10,7 +10,7 @@ gem "puma", ">= 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
-gem "tailwindcss-rails", "~> 4.0" #{a}"~> 3.3.1"
+gem "tailwindcss-rails"#, "~> 4.0" #{a}"~> 3.3.1"
 # which transitively pins tailwindcss-ruby to v3
 #gem "tailwindcss-ruby", "3.4.13"
 gem "jbuilder"
@@ -22,7 +22,7 @@ gem "solid_cable"
 gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
-gem "image_processing", "~> 1.2"
+gem 'image_processing', '~> 1.14'
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'madmin', '~> 2.1', '>= 2.1.3'
 gem 'faker', '~> 3.5', '>= 3.5.2'
