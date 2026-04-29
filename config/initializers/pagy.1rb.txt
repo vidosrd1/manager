@@ -1,0 +1,4 @@
+#Pagy.options[:limit] = 5
+#Pagy.options[:page] = 1
+# Pagy.options[:size] = [1,4,4,1]
+# Pagy.options[:page_param] = :seite

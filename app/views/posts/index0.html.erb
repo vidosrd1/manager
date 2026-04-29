@@ -1,3 +1,12 @@
+<div data-controller="dark-mode">
+  <%= image_tag("Familija.svg",
+  data: { action: 'click->dark-mode#toggle'}) %>
+</div>
+<br>
+<%= image_tag("Ivana.svg",
+data: { action: 'click->dark-mode#toggle'}) %>
+<%= image_tag("Srbi.svg",
+data: { action: 'click->dark-mode#toggle'}) %>
 <% content_for :title, "Posts" %>
 <div style="margin-bottom:1.5",
 <br>
