@@ -1,15 +1,25 @@
-ENV["RAILS_ENV"] ||= "test"
-require_relative "../config/environment"
+# Configure Rails Environment
+ENV["RAILS_ENV"] = "test"
+
+require "rails"
 require "rails/test_help"
+require "debug"
 
-module ActiveSupport
-  class TestCase
-    # Run tests in parallel with specified workers
-    parallelize(workers: :number_of_processors)
+require "rails/test_unit/reporter"
+Rails::TestUnitReporter.executable = "bin/test"
 
-    # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-    fixtures :all
+TAILWINDCSS_TEST_APP_ROOT = Dir.mktmpdir
+Rails::Generators.templates_path << File.join(TAILWINDCSS_TEST_APP_ROOT, "lib/templates")
 
-    # Add more helper methods to be used by all tests here...
+class ActiveSupport::TestCase
+  def setup
+    FileUtils.rm_rf(TAILWINDCSS_TEST_APP_ROOT)
+    FileUtils.mkdir_p(TAILWINDCSS_TEST_APP_ROOT)
+  end
+
+  def teardown
+    FileUtils.rm_rf(TAILWINDCSS_TEST_APP_ROOT)
   end
 end
+
+require_relative "../lib/tailwindcss-rails"

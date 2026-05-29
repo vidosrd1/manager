@@ -12,6 +12,7 @@ text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p
     <%= link_to "New post", new_post_path,
     class: "rounded-md px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
   </div>
+<<<<<<< HEAD
   <div style="margin-top:1.3em; margin-bottom:1.3em"
   data-controller="dark-mode">
     <% if @posts.first.image.attached? %>
@@ -20,6 +21,12 @@ text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p
       @posts.first.image,
       data: { action: 'click->dark-mode#toggle'} %>
     <% end %>
+=======
+  <br>
+  <div data-controller="dark-mode">
+    <%= image_tag("Park.svg",
+    data: { action: 'click->dark-mode#toggle'}) %>
+>>>>>>> b78a933f9a15319c56e2a24c27534feaf150e362
   </div>
   <div style="margin-bottom:0.3em">
     <%= form_with(url: posts_path, method: :get,
