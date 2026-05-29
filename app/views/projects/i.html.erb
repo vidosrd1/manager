@@ -1,0 +1,8 @@
+style:"width:15em; heigh:auto"),
+<%= image_tag("_create-a.svg",
+data: { action: 'click->dark-mode#toggle'}) %>
+<% if @projects.last.image.attached? %>
+  <%= link_to image_tag(@projects.last.image,
+  style:"width:auto; heigh:auto"), @projects.last.image,
+  data: { action: 'click->dark-mode#toggle'} %>
+<% end %>
