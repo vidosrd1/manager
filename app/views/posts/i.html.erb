@@ -1,3 +1,17 @@
+<%= link_to image_tag(@posts.first.image,
+style:"width:auto; heigh:auto"),
+@posts.first.image,
+data: { action: 'click->dark-mode#toggle'} %>
+<% if @posts.first.image.attached? %>
+  <%= link_to image_tag(@posts.first.image,
+  style:"width:auto; heigh:auto"),
+  @posts.first.image,
+  data: { action: 'click->dark-mode#toggle'} %>
+<% end %>
+<br>
+<div data-controller="dark-mode">
+<%= image_tag("Park.svg",
+data: { action: 'click->dark-mode#toggle'}) %>
 <%= image_tag("svjetlost1.svg",
 data: { action: 'click->dark-mode#toggle'}) %>
 <br>

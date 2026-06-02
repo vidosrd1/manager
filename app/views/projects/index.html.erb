@@ -13,12 +13,14 @@
   <div style="margin-top:1.3em; margin-bottom:1.3em"
   data-controller="dark-mode">
     <% if @projects.first.image.attached? %>
-      <%= link_to image_tag(@projects.first.image,
-      style:"width:auto; heigh:auto"),
-      @projects.first.image,
-      data: { action: 'click->dark-mode#toggle'} %>
+    <a href="/projects/<%= @projects.first.id %>",
+     class="nav-link">
+      <%= image_tag(@projects.first.image,
+      style:"margin-bottom:2em; width:60em; heigh:auto;
+      nav-link; nav-right;") %>
+    </a>
     <% end %>
-  <div style="margin-bottom:0.3em">
+  <div style="margin-top:1.3em; margin-bottom:0.3em">
     <%= form_with(url: projects_path, method: :get,
   data: {turbo_frame: "projects",
   turbo_action: "advance"}) do |form| %>
