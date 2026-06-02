@@ -7,12 +7,12 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get pricing" do
-    get pages_pricing_url
+    get pricing_url
     assert_response :success
   end
 
   test "should get privacy" do
-    get pages_privacy_url
+    get privacy_url
     assert_response :success
   end
 end

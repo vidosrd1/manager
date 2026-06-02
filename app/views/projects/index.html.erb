@@ -10,7 +10,6 @@
     <%= link_to "New project", new_project_path,
     class: "rounded-md px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
   </div>
-<<<<<<< HEAD
   <div style="margin-top:1.3em; margin-bottom:1.3em"
   data-controller="dark-mode">
     <% if @projects.first.image.attached? %>
@@ -19,12 +18,10 @@
       @projects.first.image,
       data: { action: 'click->dark-mode#toggle'} %>
     <% end %>
-=======
   <br>
   <div data-controller="dark-mode">
     <%= image_tag("Park_stub.svg",
     data: { action: 'click->dark-mode#toggle'}) %>
->>>>>>> b78a933f9a15319c56e2a24c27534feaf150e362
   </div>
   <div style="margin-bottom:0.3em">
     <%= form_with(url: projects_path, method: :get,
@@ -50,7 +47,7 @@
   <% if @pagy.count > @pagy.limit
   %>
   <div class="mt-10">
-    <%== pagy_nav(@pagy) %>
+    <%== @pagy.series_nav %>
   </div>
   <% end %>
   </div>

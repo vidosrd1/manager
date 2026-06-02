@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  include Pagy::Backend
   allow_browser versions: :modern
+  #include Pagy::Backend
+  include Pagy::Method
 
-  stale_when_importmap_changes
+  #stale_when_importmap_changes
 end

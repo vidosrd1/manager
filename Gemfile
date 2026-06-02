@@ -26,7 +26,7 @@ gem 'image_processing'#, '~> 1.14'
 gem 'devise'#, '~> 5.0'
 gem 'madmin'#, '~> 2.3', '>= 2.3.2'
 gem 'faker'#, '~> 3.6'
-gem 'pagy', '~> 9.4'
+gem 'pagy'#, '~> 9.4'
 
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
@@ -73,7 +73,7 @@ group :test do
   gem 'activesupport'
   gem 'codecov', require: false
   gem 'i18n'
-  gem 'minitest'#, '~> 5.25', '>= 5.25.4'
+  gem 'minitest', '~> 5.25', '>= 5.25.4'
   gem 'minitest-reporters'#, '~> 1.7', '>= 1.7.1'
   gem 'oj', require: false     # false is for testing with or without it
   gem 'rack'
