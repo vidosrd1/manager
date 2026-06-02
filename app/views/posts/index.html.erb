@@ -49,7 +49,7 @@ text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p
   <% if @pagy.count > @pagy.limit
   %>
   <div class="mt-10">
-    <%== pagy_nav(@pagy) %>
+    <%== @pagy.series_nav %>
   </div>
   <% end %>
   </div>
