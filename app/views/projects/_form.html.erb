@@ -33,7 +33,13 @@
   </div>
   <div class="my-5 flex items-center gap-2">
     <%= form.label :pro %>
-    <%= form.checkbox :pro, class: ["block shadow-sm rounded-md border order-first h-5 w-5", {"border-gray-400 focus:outline-blue-600": project.errors[:pro].none?, "border-red-400 focus:outline-red-600": project.errors[:pro].any?}] %>
+    <%= form.checkbox :pro,
+    class: ["block shadow-sm rounded-md
+    border order-first h-5 w-5",
+    {"border-gray-400 focus:outline-blue-600":
+    project.errors[:pro].none?,
+    "border-red-400 focus:outline-red-600":
+    project.errors[:pro].any?}] %>
   </div>
 
   <div class="inline">

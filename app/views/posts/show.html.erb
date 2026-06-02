@@ -36,8 +36,10 @@
     <ul class="nav navbar-nav">
       <li style="width:650px; heigh:auto" class="">
         <% if @post.image.attached? %>
-          <%= link_to image_tag(@post.image,
-          style:"width:640px; heigh:auto"), @post.image %>
+        <a href="/posts/<%= @post.id %>",
+          class="nav-link">
+          <%= image_tag(@post.image) %>
+        </a>
         <% end %>
       <li style="margin-top:2em; margin-bottom:2em;
       1width:29em; heigh:auto">

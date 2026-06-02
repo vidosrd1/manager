@@ -16,11 +16,11 @@
     <a href="/projects/<%= @projects.first.id %>",
      class="nav-link">
       <%= image_tag(@projects.first.image,
-      style:"margin-bottom:2em; width:60em; heigh:auto;
+      style:"margin-bottom:1em; width:60em; heigh:auto;
       nav-link; nav-right;") %>
     </a>
     <% end %>
-  <div style="margin-top:1.3em; margin-bottom:0.3em">
+  <div style="margin-top:0.3em; margin-bottom:0.3em">
     <%= form_with(url: projects_path, method: :get,
   data: {turbo_frame: "projects",
   turbo_action: "advance"}) do |form| %>
@@ -40,10 +40,11 @@
       </div>
     <% end %>
   </div>
-  <div style="margin-top:0.1em" class="row mt-4 clearfix">
+  <div style="margin-top:1em"
+  class="row mt-4 clearfix">
   <% if @pagy.count > @pagy.limit
   %>
-  <div class="mt-10">
+  <div class="mt-6">
     <%== @pagy.series_nav %>
   </div>
   <% end %>
@@ -69,8 +70,10 @@ class="dark:text-slate-400 mt-0 mb-1">
 <div style="margin-top:1em; margin-bottom:1em"
 class="col-4 col-sm-4 col-md-3 col-lg-3 clearfix">
 <% if project.image.attached? %>
-  <%= link_to image_tag(project.image,
-  style:"width:15em; heigh:auto"), project.image %>
+  <a href="/projects/<%= project.id %>",
+    class="nav-link">
+    <%= image_tag(project.image) %>
+  </a>
 <% end %>
 </div>
 <% if user_signed_in? %>
