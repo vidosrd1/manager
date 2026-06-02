@@ -7,3 +7,8 @@ data: { action: 'click->dark-mode#toggle'}) %>
   data: { action: 'click->dark-mode#toggle'} %>
 <% end %>
 <%== pagy_nav(@pagy) %>
+<br>
+<div data-controller="dark-mode">
+  <%= image_tag("Park_stub.svg",
+  data: { action: 'click->dark-mode#toggle'}) %>
+</div>
