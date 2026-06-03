@@ -12,7 +12,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"#, "~> 4.0" #{a}"~> 3.3.1"
 #gem "tailwindcss-ruby", "3.4.13"
-gem 'psych'#, '~> 5.3', '>= 5.3.1'
+gem 'psych', '~> 5.4'
 gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
