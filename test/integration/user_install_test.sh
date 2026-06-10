@@ -1,7 +1,4 @@
 #! /usr/bin/env bash
-# reproduce the documented user journey for installing and running tailwindcss-rails
-# this is run in the CI pipeline, non-zero exit code indicates a failure
-
 set -o pipefail
 set -eux
 

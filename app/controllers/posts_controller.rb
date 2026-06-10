@@ -31,6 +31,46 @@ find(:all, :conditions => ['title LIKE ?',
   end
 
   def index
+    #searchkick word_start: [:name, :title] # Example: configure searchable fields
+#@posts = Post.search("search query",
+#  fields: [:name, :title], match: :word_start)
+    if params[:search]
+      @posts = Post.search(params[
+    :search]).order("created_at DESC")
+    else
+      @posts = Post.all.order('created_at DESC')
+    end
+    @pagy, @posts = pagy(@posts)
+    if params[:query].present?
+      @posts = Post.change(
+        "title LIKE ? OR
+        name LIKE ? OR
+        body LIKE ?",
+        #body::text LIKE ?",
+        "%#{params[:query]}%",
+        "%#{params[:query]}%",
+        "%#{params[:query]}%"
+      ).where(active: true)
+    end
+  #if params[:query].present?
+  #  @posts = @posts.search_by_title(params[:query]).
+  #  search_by_name(params[:query]).
+  #  search_by_body(params[:query])
+  #end
+    if turbo_frame_request?
+      render partial: "posts",
+      locals: { posts: @posts }
+    else
+      render :index
+    end
+
+  rescue Pagy::OverflowError
+    #redirect_to root_path(page: 1)
+    params[:page] = 1
+    retry
+  end
+
+  def index1
     #@posts = Post.all
     if params[:search]
       @posts = Post.search(params[
@@ -115,6 +155,6 @@ find(:all, :conditions => ['title LIKE ?',
 
     def post_params
       params.expect(post: [ :title,
-        :name, :image, :content ])
+        :name, :image, :body ])
     end
 end
