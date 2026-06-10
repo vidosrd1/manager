@@ -1,3 +1,5 @@
+![CI Pipeline Badge](https://github.com/your-user/your-repo/actions/workflows/ci-cd.yml/badge.svg)
+
 # Tailwind CSS for Rails
 
 [Tailwind CSS](https://tailwindcss.com) is a utility-first CSS framework packed with classes like `flex`, `pt-4`, `text-center` and `rotate-90` that can be composed to build any design, directly in your markup.
@@ -104,7 +106,7 @@ gem "tailwindcss-ruby", "~> 3.4" # only necessary with tailwindcss-rails <= 3.3.
 First, update to `tailwindcss-rails` v4.0.0 or higher. This will also ensure you're transitively depending on `tailwindcss-ruby` v4.
 
 ```ruby
-# Gemfile 
+# Gemfile
 gem "tailwindcss-rails", "~> 4.0" # which transitively pins tailwindcss-ruby to v4
 ```
 
