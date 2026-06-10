@@ -12,23 +12,23 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
+#    strategy:
 #      fail-fast: false
 #      matrix:
 #        node-version: ['latest']
-    steps:
+#    steps:
 #      - uses: actions/checkout@v4
 #      - name: Use Node.js
 #        uses: actions/setup-node@v4
-        with:
+#        with:
 #          node-version: ${{ matrix.node-version }}
 #      - run: npm install
 #      - run: npm run upstream
 #      - name: Handle error
 #        if: ${{ failure() }}
 #        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
-        with:
-          script: |
+#        with:
+#          script: |
 #            const { owner, repo } = context.repo;
 #            const nodeVersion = process.version;
 #            const issueTitle = `Upstream check failed`;
