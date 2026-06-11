@@ -58,6 +58,8 @@ gem 'ansi'
 gem 'cane'
 
 group :development, :test do
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "bundler-audit", require: false
   gem "brakeman", require: false
